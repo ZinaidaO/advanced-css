@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS - Assignment 2</title>
+<style>
+.pozadina {
+width: 600px;
+height: 600px;
+background-color: #050210;
+margin-left: auto;
+margin-right: auto;
+position: relative;
+
+}
+.krug {
+width: 320px;
+height: 320px;
+background: linear-gradient(#fb5dad, #55fb9f, #b97aff) ;
+border-radius: 100%;
+position: absolute;
+margin-top: 140px;
+margin-left: 140px;
+z-index: 1;
+animation-name: animacijaKruga;
+animation-duration: 1s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+}
+.krug::before {
+content: "";
+background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+position: absolute;
+border-radius: 100%;
+height: 320px;
+width: 320px;
+z-index: 0;
+filter: blur(30px);
+}
+@keyframes animacijaKruga {
+0% {
+transform: rotate(360deg);
+}
+}
+.pozadina::before {
+content: "";
+width: 280px;
+height: 280px;
+background: #050210;
+border-radius: 100%;
+position: absolute;
+margin-top: 160px;
+margin-left: 160px;
+z-index: 2;
+}
+.unutarKruga {
+content: "";
+width: 280px;
+height: 280px;
+background: #080429;
+border-radius: 100%;
+position: absolute;
+margin-top: 160px;
+margin-left: 160px;
+z-index: 3;
+animation-name: animacijaUnutarKruga;
+animation-duration: 1s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-delay: 1s;
+}
+@keyframes animacijaUnutarKruga {
+0% {transform: scale(0);
+opacity: 1;}
+100% {transform: scale(1);
+opacity: 0.5;}
+}
+
+    </style>
+</head>
+<body>
+    <div id="div1", class="pozadina" >
+        <div id="div2", class="krug"></div>
+        <div id="div3", class="unutarKruga"></div>
+    </div>
+</body>
+</html>
